@@ -1,0 +1,7 @@
+POST http://localhost:5050/api/ad
+Content-Type: application/json
+
+{
+    "title": "I am selling a bike",
+    "content": "The price is 50€"
+}

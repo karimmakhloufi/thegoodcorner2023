@@ -1,19 +1,20 @@
 import "reflect-metadata";
 import express from "express";
 import { AppDataSource } from "./dataSource";
+import { Ad } from "./entities/ad";
 
 const port = 5050;
 const app = express();
 
 app.use(express.json());
 
-app.get("/", (_req, res) => {
-  res.send("Hello World!");
-});
-
-app.post("/", (req, res) => {
+app.post("/api/ad", async (req, res) => {
   console.log(req.body);
-  res.send("Test POST");
+  const addFromClient = new Ad();
+  addFromClient.content = req.body.content;
+  addFromClient.title = req.body.title;
+  const result = await addFromClient.save();
+  res.status(201).send(result);
 });
 
 const start = async () => {

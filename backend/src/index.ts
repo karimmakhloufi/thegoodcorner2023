@@ -1,13 +1,19 @@
 import "reflect-metadata";
+import express from "express";
 import { AppDataSource } from "./dataSource";
-import { Ad } from "./entities/ad";
+
+const port = 5050;
+const app = express();
+
+app.get("/", (_req, res) => {
+  res.send("Hello World!");
+});
 
 const start = async () => {
   await AppDataSource.initialize();
-  const bikeAd = new Ad();
-  bikeAd.title = "I'm selling a bike";
-  bikeAd.content = "The price is 50 €";
-  bikeAd.save();
+  app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+  });
 };
 
 start();

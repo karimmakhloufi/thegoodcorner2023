@@ -17,6 +17,11 @@ app.post("/api/ad", async (req, res) => {
   res.status(201).send(result);
 });
 
+app.get("/api/ad", async (_req, res) => {
+  const result = await Ad.find();
+  res.send(result);
+});
+
 const start = async () => {
   await AppDataSource.initialize();
   app.listen(port, () => {

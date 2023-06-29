@@ -9,6 +9,12 @@ export class AdResolver {
     return result;
   }
 
+  @Query(() => Ad)
+  async getAdById(@Arg("id") idArg: number) {
+    const result = Ad.findOneByOrFail({ id: idArg });
+    return result;
+  }
+
   @Mutation(() => Ad)
   async addAd(
     @Arg("title") titleArg: string,

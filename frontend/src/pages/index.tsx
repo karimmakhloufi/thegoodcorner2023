@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { useQuery, gql } from "@apollo/client";
 import styles from "../styles/Home.module.css";
-import CounterComponent from "../components/CounterComponent";
-import Logo from "../../public/logo.png";
 import AdListComponent from "@/components/AdListComponent";
 
 const GET_ALL_ADS = gql`

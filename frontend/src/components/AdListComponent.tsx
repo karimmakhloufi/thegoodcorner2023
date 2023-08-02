@@ -1,3 +1,5 @@
+import AdComponent from "./AdComponent";
+
 const AdListComponent = () => {
   const ads = [
     {
@@ -26,11 +28,13 @@ const AdListComponent = () => {
     },
   ];
   return ads.map((el) => (
-    <div key={el.id}>
-      <h2>{el.title}</h2>
-      <h3>{el.price} $</h3>
-      <p>{el.description}</p>
-    </div>
+    <AdComponent
+      key={el.id}
+      id={el.id}
+      title={el.title}
+      description={el.description}
+      price={el.price}
+    />
   ));
 };
 

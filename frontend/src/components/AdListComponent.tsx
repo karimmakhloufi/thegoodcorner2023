@@ -25,7 +25,13 @@ const AdListComponent = () => {
       description: "I will sell you my computer for 1 000 $",
     },
   ];
-  return ads.map((el) => <p key={el.id}>{el.title}</p>);
+  return ads.map((el) => (
+    <div key={el.id}>
+      <h2>{el.title}</h2>
+      <h3>{el.price} $</h3>
+      <p>{el.description}</p>
+    </div>
+  ));
 };
 
 export default AdListComponent;
